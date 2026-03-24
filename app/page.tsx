@@ -12,6 +12,8 @@ import {
   Cpu,
   Network,
   BarChart3,
+  Activity,
+  Zap,
 } from "lucide-react";
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
@@ -123,9 +125,29 @@ const PROJECTS = [
     description:
       "Python trading simulator using yfinance APIs, automating SMA crossover backtesting to compute win rates, payoff ratios, and optimal Kelly position sizing — reducing manual research time by ~90%.",
     tags: ["Python", "Finance", "Backtesting", "yfinance"],
-    github: "https://github.com/jaounial/kelly-simulator",
+    github: "https://github.com/jaounial/Trading",
     stat: "90% less research",
     Icon: TrendingUp,
+  },
+  {
+    title: "WHOOP Health Dashboard",
+    period: "Mar 2026",
+    description:
+      "Full-stack FastAPI backend integrating WHOOP's OAuth2 API to aggregate and visualize 7-day recovery scores, workout strain, and sleep performance into a unified personal health dashboard.",
+    tags: ["FastAPI", "Python", "OAuth2", "WHOOP API"],
+    github: "https://github.com/jaounial/whoop-backend",
+    stat: "7-day health sync",
+    Icon: Activity,
+  },
+  {
+    title: "CLawTrader — Polymarket HFT Bot",
+    period: "Mar 2026",
+    description:
+      "High-frequency trading bot exploiting pricing discrepancies between Binance BTC feeds and Polymarket prediction contracts. Executes limit orders in <100ms using 4 weighted signals: MACD, order-book imbalance, VWAP divergence, and volatility-adjusted strike distance.",
+    tags: ["Python", "HFT", "Polymarket", "Binance API"],
+    github: "https://github.com/jaounial/CLawTrader",
+    stat: "<100ms execution",
+    Icon: Zap,
   },
 ];
 
@@ -616,7 +638,7 @@ function Projects() {
   return (
     <FadeSection id="projects" className="max-w-5xl mx-auto px-6 py-28">
       <SectionLabel text="Projects" sub="// things I've built" />
-      <div className="grid md:grid-cols-3 gap-5">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {PROJECTS.map((proj, i) => (
           <div key={i}
             className="group flex flex-col p-6 rounded-lg bg-[#0d0d0d] border border-[#1e1e1e] hover:border-[#f5c518]/30 transition-all duration-300 hover:-translate-y-1 relative overflow-hidden">
