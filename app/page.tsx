@@ -10,7 +10,6 @@ import {
   ExternalLink,
   Terminal,
   Cpu,
-  Network,
   BarChart3,
   Activity,
   Zap,
@@ -30,35 +29,15 @@ const HERO_ROLES = [
 const SKILLS = {
   "Programming & Data": {
     icon: Cpu,
-    items: [
-      { name: "Python", level: 92 },
-      { name: "SQL", level: 80 },
-      { name: "Java", level: 72 },
-      { name: "MATLAB", level: 68 },
-      { name: "AMPL", level: 60 },
-      { name: "API Integration", level: 85 },
-    ],
+    items: ["Python", "SQL", "Java", "MATLAB", "AMPL", "REST APIs", "pandas", "NumPy"],
   },
   "AI & Automation": {
     icon: Brain,
-    items: [
-      { name: "Machine Learning", level: 85 },
-      { name: "Deep Learning", level: 80 },
-      { name: "LLM Workflows", level: 88 },
-      { name: "n8n Automation", level: 90 },
-      { name: "Prompt Engineering", level: 87 },
-      { name: "Predictive Analytics", level: 78 },
-    ],
+    items: ["PyTorch", "scikit-learn", "LLM Workflows", "n8n", "Prompt Engineering", "FastAPI", "Predictive Analytics", "OpenCV"],
   },
-  "Project Management": {
+  "Tools & Systems": {
     icon: BarChart3,
-    items: [
-      { name: "Agile", level: 85 },
-      { name: "Process Mapping", level: 82 },
-      { name: "Stakeholder Comms", level: 88 },
-      { name: "Gantt / Roadmaps", level: 80 },
-      { name: "Documentation", level: 83 },
-    ],
+    items: ["Git", "Vercel", "Agile / Scrum", "Process Mapping", "Gantt / Roadmaps", "Figma", "Notion", "Postman"],
   },
 };
 
@@ -528,7 +507,7 @@ function TerminalBlock() {
 
 function About() {
   return (
-    <FadeSection id="about" className="max-w-5xl mx-auto px-6 py-28">
+    <FadeSection id="about" className="max-w-5xl mx-auto px-6 py-20">
       <SectionLabel text="About" sub="// who I am" />
       <div className="grid md:grid-cols-2 gap-12 items-start">
         <div className="space-y-5">
@@ -581,7 +560,7 @@ function MetricCounter({ target, suffix, inView }: { target: number; suffix: str
 function Experience() {
   const { ref, inView } = useInView(0.1);
   return (
-    <section ref={ref} id="experience" className="max-w-5xl mx-auto px-6 py-28"
+    <section ref={ref} id="experience" className="max-w-5xl mx-auto px-6 py-20"
       style={{
         opacity: inView ? 1 : 0,
         transform: inView ? "translateY(0)" : "translateY(32px)",
@@ -636,7 +615,7 @@ function Experience() {
 
 function Projects() {
   return (
-    <FadeSection id="projects" className="max-w-5xl mx-auto px-6 py-28">
+    <FadeSection id="projects" className="max-w-5xl mx-auto px-6 py-20">
       <SectionLabel text="Projects" sub="// things I've built" />
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {PROJECTS.map((proj, i) => (
@@ -679,46 +658,36 @@ function Projects() {
 
 // ─── Skills ───────────────────────────────────────────────────────────────────
 
-function SkillBar({ name, level, inView, delay }: { name: string; level: number; inView: boolean; delay: number }) {
-  return (
-    <div className="space-y-1">
-      <div className="flex justify-between items-center">
-        <span className="text-xs text-[#888] font-mono">{name}</span>
-        <span className="text-[10px] text-[#444] font-mono">{level}%</span>
-      </div>
-      <div className="h-px bg-[#1a1a1a] rounded-full overflow-hidden">
-        <div
-          className="h-full rounded-full bg-gradient-to-r from-[#f5c518] to-[#c49a10]"
-          style={{
-            width: inView ? `${level}%` : "0%",
-            transition: `width 1s ease ${delay}ms`,
-          }}
-        />
-      </div>
-    </div>
-  );
-}
-
 function Skills() {
   const { ref, inView } = useInView(0.1);
   return (
-    <section ref={ref} id="skills" className="max-w-5xl mx-auto px-6 py-28"
+    <section ref={ref} id="skills" className="max-w-5xl mx-auto px-6 py-20"
       style={{
         opacity: inView ? 1 : 0,
         transform: inView ? "translateY(0)" : "translateY(32px)",
         transition: "opacity 0.7s ease, transform 0.7s ease",
       }}>
-      <SectionLabel text="Skills" sub="// tech stack" />
+      <SectionLabel text="Skills" sub="// tools I work with" />
       <div className="grid md:grid-cols-3 gap-6">
         {Object.entries(SKILLS).map(([category, { icon: Icon, items }]) => (
-          <div key={category} className="p-6 rounded-lg bg-[#0d0d0d] border border-[#1e1e1e] space-y-4">
+          <div key={category} className="p-6 rounded-lg bg-[#0d0d0d] border border-[#1e1e1e]">
             <div className="flex items-center gap-2 mb-5">
               <Icon size={14} className="text-[#f5c518]" strokeWidth={1.5} />
               <h3 className="font-mono text-[#f5c518] text-xs uppercase tracking-widest">{category}</h3>
             </div>
-            <div className="space-y-3">
-              {items.map((skill, idx) => (
-                <SkillBar key={skill.name} name={skill.name} level={skill.level} inView={inView} delay={idx * 80} />
+            <div className="flex flex-wrap gap-2">
+              {items.map((tool, idx) => (
+                <span
+                  key={tool}
+                  className="text-xs font-mono px-3 py-1.5 rounded-md border border-[#222] text-[#888] bg-[#111] hover:border-[#f5c518]/40 hover:text-[#e8e8e8] transition-all duration-200"
+                  style={{
+                    opacity: inView ? 1 : 0,
+                    transform: inView ? "translateY(0)" : "translateY(8px)",
+                    transition: `opacity 0.4s ease ${idx * 50}ms, transform 0.4s ease ${idx * 50}ms`,
+                  }}
+                >
+                  {tool}
+                </span>
               ))}
             </div>
           </div>
