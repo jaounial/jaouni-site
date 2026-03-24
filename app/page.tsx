@@ -134,8 +134,6 @@ const TERMINAL_LINES = [
   { prefix: "", text: "ali_jaouni — Industrial Engineer + AI builder", delay: 400 },
   { prefix: "$ ", text: "cat interests.txt", delay: 900 },
   { prefix: "", text: "→ ML / Deep Learning · Automation · Financial Systems", delay: 1300 },
-  { prefix: "$ ", text: "echo $STATUS", delay: 1900 },
-  { prefix: "", text: "Open to summer internships 2025 ✓", delay: 2300 },
 ];
 
 // ─── Hooks ────────────────────────────────────────────────────────────────────
@@ -416,12 +414,6 @@ function Hero() {
         style={{ background: "radial-gradient(ellipse 70% 70% at 50% 50%, transparent 40%, #080808 100%)" }} />
 
       <div className="relative z-10 animate-fade-up">
-        <div className="flex items-center gap-2 mb-6">
-          <span className="font-mono text-[#f5c518] text-xs tracking-widest uppercase bg-[#f5c518]/10 border border-[#f5c518]/20 px-3 py-1 rounded-full">
-            ● Available for internships
-          </span>
-        </div>
-
         <p className="font-mono text-[#555] text-sm mb-3 tracking-widest uppercase">Hello, I&apos;m</p>
 
         <h1 className="text-6xl md:text-8xl font-black tracking-tight text-[#e8e8e8] leading-none mb-4">
