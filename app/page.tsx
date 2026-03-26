@@ -123,7 +123,7 @@ const PROJECTS = [
     title: "GutHub — Celiac Community Platform",
     period: "Jan – Apr 2026",
     description:
-      "Co-built a full-stack community web app for people with celiac disease. Features crowdsourced celiac-safe restaurant discovery in Toronto, recipe sharing with reviews, and personal meal/ingredient tracking. Ali's role: database engineer — designed the relational schema and implemented all DB logic.",
+      "Co-built a full-stack community web app for people with celiac disease. Features crowdsourced celiac-safe restaurant discovery in Toronto, recipe sharing with reviews, and personal meal/ingredient tracking. My role: database engineer — designed the relational schema and implemented all DB logic.",
     tags: ["Java", "Maven", "REST API", "Appsmith", "Relational DB"],
     github: "https://github.com/THE-DSBV/GutHub",
     stat: "6-person team",
